@@ -1,5 +1,5 @@
 let oldNumbers =[];
-let limitNumber = 10;
+let limitNumber = 100;
 let secretNumber = generateRandomNumber();
 let trys = 1;
 

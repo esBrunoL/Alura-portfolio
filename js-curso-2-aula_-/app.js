@@ -5,8 +5,8 @@ let trys = 1;
 
 
 function displayText(tag,text){
-    let field = document.querySelector(tag)
-    field.innerHTML = text
+    let field = document.querySelector(tag);
+    field.innerHTML = text;
     responsiveVoice.speak(text,'UK English Female',{rate:1.0});
 }
 

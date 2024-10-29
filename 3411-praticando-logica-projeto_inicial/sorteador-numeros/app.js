@@ -8,9 +8,9 @@ function play(){
     sortear(values);
 }
 function check(){
-    let quantidade = document.getElementById('quantidade').value;
-    let de = document.getElementById('de').value;
-    let ate = document.getElementById('ate').value;
+    let quantidade = parseInt(document.getElementById('quantidade').value);
+    let de = parseInt(document.getElementById('de').value);
+    let ate = parseInt(document.getElementById('ate').value);
 
     if(de >= ate){
         alert(`The values are not propely ordered, but don't worry, I got you this time`);
@@ -35,11 +35,9 @@ function sortear(values){
     
 
     while(quantidade>numbers.length){
-        let randomNumber = parseInt(Math.random() * ate +1);
-        if(randomNumber >= de && randomNumber<= ate && !numbers.includes(randomNumber)){
-            
-            //alert(`Random Number = ${randomNumber}`); 
-            
+        
+        let randomNumber = Math.floor(Math.random() * (ate - de + 1) + de);
+        if(!numbers.includes(randomNumber)){
             numbers.push(randomNumber);
             console.log(numbers);
         }else{sortear(values);}

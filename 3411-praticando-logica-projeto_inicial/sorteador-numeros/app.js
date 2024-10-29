@@ -11,15 +11,17 @@ function check(){
     let quantidade = document.getElementById('quantidade').value;
     let de = document.getElementById('de').value;
     let ate = document.getElementById('ate').value;
-    
+
     if(de >= ate){
         alert(`The values are not propely ordered, but don't worry, I got you this time`);
         let deAte = de;
         de = ate;
         ate = deAte;
     }
-
-    if(ate - de+1 < quantidade){alert(`I cannot find ${quantidade} numbers between ${de} and ${ate}\nplease select a new values`);
+    if(ate - de+1 < quantidade){
+        alert(`I cannot find ${quantidade} numbers between ${de} and ${ate}\nplease select a new values`);
+        quantidade = 0;
+        return;
 }
     
     return [quantidade, de, ate]; 
@@ -49,7 +51,7 @@ function sortear(values){
 
 function reiniciar(){
     numbers =[];
-    //console.log(numbers);
+    displayText = ('label','')
 }
 
 function displayText(tag , text){

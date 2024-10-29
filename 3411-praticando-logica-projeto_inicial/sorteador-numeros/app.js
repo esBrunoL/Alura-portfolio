@@ -1,26 +1,37 @@
 let numbers = [];
+let values =[];
+let quantidade, de, ate;
 
-
-function sortear(){
+function play(){
+    values = check();
+    console.log(values);
+    sortear(values);
+}
+function check(){
     let quantidade = document.getElementById('quantidade').value;
     let de = document.getElementById('de').value;
     let ate = document.getElementById('ate').value;
-
     
-    //alert(`Quantidade = ${quantidade}\nDe = ${de}\nAte = ${ate}`);
-   
-    //console.log(de,ate);
     if(de >= ate){
         alert(`The values are not propely ordered, but don't worry, I got you this time`);
         let deAte = de;
         de = ate;
         ate = deAte;
-        //console.log(de,ate);
     }
 
-    if(ate - de < quantidade){alert(`I cannot find ${quantidade} numbers between ${de} and ${ate}\nplease select a new values`); return;}
-
+    if(ate - de+1 < quantidade){alert(`I cannot find ${quantidade} numbers between ${de} and ${ate}\nplease select a new values`);
+}
     
+    return [quantidade, de, ate]; 
+}
+
+
+function sortear(values){
+    quantidade = values[0];
+    de = values[1];
+    ate = values[2];
+    
+
     while(quantidade>numbers.length){
         let randomNumber = parseInt(Math.random() * ate +1);
         if(randomNumber >= de && randomNumber<= ate && !numbers.includes(randomNumber)){
@@ -29,7 +40,7 @@ function sortear(){
             
             numbers.push(randomNumber);
             console.log(numbers);
-        }else{sortear();}
+        }else{sortear(values);}
     }
     displayText('label',`Numbers = ${numbers}`);
         

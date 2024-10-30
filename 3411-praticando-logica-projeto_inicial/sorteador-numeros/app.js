@@ -42,23 +42,36 @@ function sortear(values){
             console.log(numbers);
         }else{sortear(values);}
     }
-    displayText('label',`Numbers = ${numbers}`);
-        
-}
+    displayText(`<label class="texto__paragrafo"> Numbers = ${numbers}</label>`);
 
+    buttomStatus();        
+}
+function buttomStatus(){
+    let buttom = document.getElementById('btn-reiniciar');
+    if(buttom.classList.contains('container__botao-desabilitado')){
+        buttom.classList.remove('container__botao-desabilitado');
+        buttom.classList.add('container__botao');
+    }else{
+        buttom.classList.remove('container__botao');
+        buttom.classList.add('container__botao-desabilitado');
+    }
+}
 
 function reiniciar(){
     numbers =[];
-    displayText = ('label','')
+    buttomStatus();
+    displayText(`<label class="texto__paragrafo"> Let's try again!</label>`);
+    cleanSite('quantidade');
+    cleanSite('de')
+    cleanSite('ate')
 }
 
-function displayText(tag , text){
+function cleanSite(id){
+    let clean = document.getElementById(id);
+    clean.value = '';  
+}
+
+function displayText(tag){
     let field = document.getElementById('resultado');
-    field.innerHTML = text;
+    field.innerHTML = tag;
 }
-
-function startingText(){
-    displayText('label','Números sorteados:  nenhum até agora')
-}
-
-startingText();

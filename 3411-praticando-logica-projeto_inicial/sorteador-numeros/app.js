@@ -44,8 +44,12 @@ function sortear(values){
     }
     displayText(`<label class="texto__paragrafo"> Numbers = ${numbers}</label>`);
 
-    buttomStatus();        
+    buttomStatus('btn-reiniciar')
+    buttomStatus('btn-sortear');        
 }
+
+// Fix the problem with the buttom
+// Fix the numbers array, it needs to be cleared before sorting new numbers.(after pressing play).
 function buttomStatus(){
     let buttom = document.getElementById('btn-reiniciar');
     if(buttom.classList.contains('container__botao-desabilitado')){
